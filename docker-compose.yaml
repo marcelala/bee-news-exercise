@@ -1,0 +1,17 @@
+version: "3"
+services:
+  database:
+    image: postgres:13-alpine
+    # credentials - creates admin/super user
+    environment:
+      - POSTGRES_DB=demo
+      - POSTGRES_USER=demo_user
+      - POSTGRES_PASSWORD=demo_pass
+    ports:
+      - "5431:5432"
+   # enables to save data
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
